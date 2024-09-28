@@ -5,6 +5,15 @@ This is a simple PHP API MVC template.
 
 ## Getting Started
 
+> Note: The following mermaid diagram may not render in all markdown viewers.
+
+
+```mermaid
+graph TD;
+    A[Controller] -->|calls| B[Service];
+    B -->|interacts with| C[Model];
+```
+
 To get started with this template, follow these steps:
 
 1. Clone the repository:
