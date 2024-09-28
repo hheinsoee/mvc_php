@@ -1,0 +1,13 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Rewrite rule to direct all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Set the default charset
+AddDefaultCharset UTF-8
+
+# Handle 404 errors
+ErrorDocument 404 /index.php
