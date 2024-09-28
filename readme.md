@@ -13,7 +13,7 @@ To get started with this template, follow these steps:
     ```
 2. Navigate to the project directory:
     ```bash
-    cd /mvc_php
+    cd mvc_php
     ```
 3. Install dependencies:
     ```bash
@@ -25,6 +25,7 @@ To get started with this template, follow these steps:
 
 To start the development server, run:
 ```bash
+cd www
 php -S localhost:8000 -t public
 ```
 
