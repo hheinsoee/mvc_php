@@ -25,7 +25,6 @@ To get started with this template, follow these steps:
 
 To start the development server, run:
 ```bash
-cd www
 php -S localhost:8000 -t public
 ```
 

@@ -2,34 +2,34 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Services\UserService;
 use Core\Responder;
 
 class UserController
 {
-    protected $userModel;
+    protected $userService;
 
     public function __construct()
     {
-        $this->userModel = new User();
+        $this->userService = new UserService();
     }
 
-    // Handle getting all users
+    // Handle GET request for all users
     public function index()
     {
-        $users = $this->userModel->getAllUsers();
+        $users = $this->userService->getAllUsers();
         Responder::success($users);
     }
 
-    // Handle getting a single user by ID
+    // Handle GET request for a user by ID
     public function show($id)
     {
-        $user = $this->userModel->getUserById($id);
-
+        $user = $this->userService->getUserById($id);
+        
         if ($user) {
             Responder::success($user);
         } else {
-            Responder::notFound("User with ID $id not found");
+            Responder::notFound("User not found.");
         }
     }
 }
