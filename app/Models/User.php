@@ -2,27 +2,28 @@
 
 namespace App\Models;
 
+use PDO;
+
+
 class User
 {
+    private $pdo;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->pdo = $pdo;
+    }
+
     public function getAllUsers()
     {
-        // Dummy data for example
-        return [
-            ['id' => 1, 'name' => 'John Doe'],
-            ['id' => 2, 'name' => 'Jane Doe']
-        ];
+        $stmt = $this->pdo->query('SELECT * FROM user');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getUserById($id)
     {
-        $users = $this->getAllUsers();
-
-        foreach ($users as $user) {
-            if ($user['id'] == $id) {
-                return $user;
-            }
-        }
-
-        return null;
+        $stmt = $this->pdo->prepare('SELECT *FROM user WHERE id = :id');
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

@@ -1,27 +1,22 @@
 <?php
-
 namespace App\Services;
 
 use App\Models\User;
+use Core\Database;
 
-class UserService
-{
+class UserService {
     protected $userModel;
 
-    public function __construct()
-    {
-        $this->userModel = new User();
+    public function __construct() {
+        $pdo = Database::getInstance();
+        $this->userModel = new User($pdo);
     }
 
-    // Retrieve all users
-    public function getAllUsers()
-    {
+    public function getAllUsers() {
         return $this->userModel->getAllUsers();
     }
 
-    // Retrieve a user by ID
-    public function getUserById($id)
-    {
+    public function getUserById($id) {
         return $this->userModel->getUserById($id);
     }
 }

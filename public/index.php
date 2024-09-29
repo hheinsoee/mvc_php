@@ -1,6 +1,7 @@
 <?php
 
 require '../vendor/autoload.php';
+require_once '../config/config.php';
 
 use Core\Router;
 use App\Controllers\UserController;
